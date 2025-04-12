@@ -1,0 +1,29 @@
+
+.title {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom:5%;
+}
+
+
+#purge {
+    margin-top: 15px;
+}
+
+#inputbox {
+    margin-top: 40px;;
+}
+
+#Deletebtn {
+    text-align: right;
+}
+
+#Completebtn {
+    margin-left: 10px;
+}
+
+#Completed {
+    margin-right: 10px;
+}
