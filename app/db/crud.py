@@ -49,5 +49,15 @@ async def delete_all() -> int:
 
 async def mark_task(task_id: str) -> TaskOut:
     id = ObjectId(task_id)
-    result = await collection.find_one_and_update({"_id": id}, {"$set" : {"is_completed": True}}, return_document=True)
+    current_task = await collection.find_one({"_id": id})
+    if not current_task:
+        raise ValueError("Task not found")
+    new_status = not current_task["is_completed"]
+
+    # Update in database
+    result = await collection.find_one_and_update(
+        {"_id": id},
+        {"$set": {"is_completed": new_status}},
+        return_document=True)
+    
     return TaskOut(id=str(id), **result)

@@ -37,9 +37,7 @@ async function loadTasks() {
             checkbox.checked = task.is_completed;
 
             checkbox.addEventListener('change', () => {
-                if (checkbox.checked && !task.is_completed) {
-                    markComplete(task.id);
-                }
+                markComplete(task.id); 
             });
 
             // Title
